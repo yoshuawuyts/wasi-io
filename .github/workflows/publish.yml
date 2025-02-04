@@ -10,14 +10,13 @@ on:
 env:
   IMAGE_NAME: ${{ github.repository }}
 
-  permissions:
-    id-token: write
-    packages: write
-    contents: read
-
 jobs:
   publish:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      packages: write
+      contents: read
 
     steps:
       # Checkout the repo and install dependencies
