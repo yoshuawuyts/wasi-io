@@ -10,8 +10,10 @@ on:
 env:
   IMAGE_NAME: ${{ github.repository }}
 
-permissions:
-  packages: write
+  permissions:
+    id-token: write
+    packages: write
+    contents: read
 
 jobs:
   publish:
