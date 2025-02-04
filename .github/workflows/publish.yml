@@ -33,7 +33,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ghcr.io/WebAssembly/wasi/io
+          images: ghcr.io/yoshuawuyts/wasi/io
           tags: |
             type=semver,pattern={{version}}
       
@@ -53,7 +53,7 @@ jobs:
       # Upload the Wasm binary to the GitHub registry
       - uses: bytecodealliance/wkg-github-action@v4
         with:
-            oci-reference-without-tag: 'ghcr.io/webassembly/wasi/io'
+            oci-reference-without-tag: 'ghcr.io/yoshuawuyts/wasi/io'
             file: 'wasi-io.wasm'
             description: 'A WASI API providing I/O stream abstractions.'
             source: 'https://github.com/webassembly/wasi'
