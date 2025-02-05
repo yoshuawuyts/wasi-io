@@ -35,7 +35,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ghcr.io/yoshuawuyts/wasi/io
+          images: ghcr.io/webassembly/wasi/io
           tags: |
             type=semver,pattern={{version}}
       
@@ -57,7 +57,7 @@ jobs:
         id: publish
         uses: bytecodealliance/wkg-github-action@v5
         with:
-            oci-reference-without-tag: 'ghcr.io/yoshuawuyts/wasi/io'
+            oci-reference-without-tag: 'ghcr.io/webassembly/wasi/io'
             file: 'wasi-io.wasm'
             description: 'A WASI API providing I/O stream abstractions.'
             source: 'https://github.com/webassembly/wasi'
@@ -67,4 +67,4 @@ jobs:
 
       # Sign the output component
       - name: Sign the wasm component
-        run: cosign sign --yes ghcr.io/yoshuawuyts/wasi/io@${{ steps.publish.outputs.digest }}
+        run: cosign sign --yes ghcr.io/webassembly/wasi/io@${{ steps.publish.outputs.digest }}
